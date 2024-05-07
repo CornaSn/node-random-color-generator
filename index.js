@@ -1,15 +1,34 @@
-var randomColor = import('randomcolor'); // import the script
-var color = randomColor(); // a hex code for an attractive color
+import * as color from 'randomcolor';
 
-// import * as color from 'randomcolor';
+//Random color via the randomcolor library
+let randomColorPicker = color.randomColor();
+console.log(randomColorPicker);
 
-// let color = randomColor();
+// Color based on request
+let randomColorRequest = color.randomColor({
+  luminosity: 'light',
+  hue: 'blue',
+});
+console.log(randomColorRequest);
 
-// console.log(randomColor);
+let rows = 9;
 
-// const randomHexColorCode = () => {
-//   let n = (Math.random() * 0xfffff * 1000000).toString(16);
-//   return '#' + n.slice(0, 6);
-// };
+// pattern variable carries the final pattern in string format
+let pattern = '';
 
-// console.log(randomHexColorCode());
+// outer loop runs for `rows` no. of times
+for (let n = 1; n <= rows; n++) {
+  for (let num = 1; num <= 31; num++) {
+    // print # only if it is the boundary location
+    if (n < 4 || n > 6) pattern += '#';
+    else {
+      if (num === 1 || num === 23) {
+        pattern += '#'.repeat(5);
+      } else {
+        pattern += ' ';
+      }
+    }
+  }
+  pattern += '\n';
+}
+console.log(pattern);
