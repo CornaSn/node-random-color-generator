@@ -1,8 +1,9 @@
+import kuler from 'kuler';
 import * as color from 'randomcolor';
 
 //Random color via the randomcolor library
 let randomColorPicker = color.randomColor();
-console.log(randomColorPicker);
+console.log(kuler(randomColorPicker, randomColorPicker));
 
 // Color based on request
 let randomColorRequest = color.randomColor({
@@ -11,24 +12,22 @@ let randomColorRequest = color.randomColor({
 });
 console.log(randomColorRequest);
 
+let allLines = '';
+let fullLine = '###############################\n';
+let halfLine = '#####                     #####\n';
+let middleLine = `#####       ${randomColorPicker}       #####\n`;
+
 let rows = 9;
-
-// pattern variable carries the final pattern in string format
-let pattern = '';
-
-// outer loop runs for `rows` no. of times
 for (let n = 1; n <= rows; n++) {
-  for (let num = 1; num <= 31; num++) {
-    // print # only if it is the boundary location
-    if (n < 4 || n > 6) pattern += '#';
-    else {
-      if (num === 1 || num === 23) {
-        pattern += '#'.repeat(5);
-      } else {
-        pattern += ' ';
-      }
-    }
+  if (n < 4 || n > 6) {
+    //console.log(fullLine);
+    allLines += fullLine;
+  } else if (n === 4 || n === 6) {
+    //console.log(halfLine);
+    allLines += halfLine;
+  } else {
+    //console.log(middleLine);
+    allLines += middleLine;
   }
-  pattern += '\n';
 }
-console.log(pattern);
+console.log(kuler(allLines, randomColorPicker));
