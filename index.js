@@ -1,21 +1,20 @@
 import { argv } from 'node:process';
 import kuler from 'kuler';
-import * as color from 'randomcolor';
+import randomColor from 'randomcolor';
 
 // Random color via the randomcolor library
 // let randomColorPicker = color.randomColor();
 // console.log(kuler(randomColorPicker, randomColorPicker));
 
 // Color based on request
+
 const hue = argv[2];
 const luminosity = argv[3];
 
-const randomColorRequest = color.randomColor({
-  hue: hue,
+const randomColorRequest = randomColor({
   luminosity: luminosity,
+  hue: hue,
 });
-
-typeof randomeColorRequest === 'string';
 
 // Variables for the pattern
 let allLines = '';
