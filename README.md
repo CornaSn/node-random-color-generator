@@ -52,3 +52,7 @@ When a user enters node index.js in the command line, a block of 31x9 # characte
 ###############################
 ###############################
 ```
+
+
+## Credits
+This is a React project I completed during the PERN-extensive (Immersive) Spring 2024 bootcamp at [UpLeveled](https://github.com/upleveled)
